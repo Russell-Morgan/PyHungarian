@@ -411,10 +411,10 @@ while 1:
             isBothCovered = "\033[92m" if coveredColumns[scoreColumnIndex] and coveredRows[scoreRowIndex] else ""
             string += isRowCovered+isColumnCovered+isBothCovered+str(item)+"\033[0m"+"\t"
             scoreColumnIndex += 1
-        print(string[:125]+"...")
+        print(string[:125]+"...\033[0m")
         scoreRowIndex += 1
 
-    print("coverCounter")
+    print("\033[0m coverCounter")
     print(coverCounter)
     if (coverCounter >= len(scores)-1):
         break
@@ -448,17 +448,17 @@ for scoreRow in scores:
             isFirst = False
             blastIndex = scoresIndex
             while blastIndex < len(scores):
-                scores[blastIndex][itemIndex] = 1
+                scores[blastIndex][itemIndex] = 900
                 blastIndex += 1
             colour = "\033[92m"
             if (len(scores[0]) <= itemIndex):
                 scores[0].append("NO PARTNER")
             pairingString += scores[scoresIndex][0] + " - " + scores[0][itemIndex] + ", \n"
         elif (item == 0):
-            scores[scoresIndex][itemIndex] = 1
+            scores[scoresIndex][itemIndex] = 900
         string += colour+str(item)+"\033[0m"+"\t"
         itemIndex += 1
-    print(string)
+    #print(string)
     scoresIndex += 1
 
 print(pairingString)
