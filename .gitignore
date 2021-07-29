@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+input/A.csv
+input/B.csv
